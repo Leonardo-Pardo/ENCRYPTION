@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Encriptador</title>
+    <link rel="preload" href="CSS/normalize.css" as="style">
+    <link rel="stylesheet" href="reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+
+</head>
+
+<body>
+    <div class="fondo"></div>
+
+    <header>
+        <img class="fondoAlura" src="img/alura1.png">
+        <h1 class="titulo">encriptador</h1>
+    </header>
+
+    <img class="logo" src="img/astronauta0.1.png">
+
+    <section class="textareas">
+        <section class="textareaEncriptar">
+            <textarea cols="80" rows="20" class="textoSinEncriptar"></textarea>
+            <img class="fondoTextarea1" src="img/transbordador2.png">
+
+            <button class="botonEncriptar">Encriptar</button>
+            <button class="copiar1">Copiar</button>
+
+        </section>
+
+        <section class="textareaDesencriptar">
+            <textarea cols="40" rows="20" class="textoEncriptado"></textarea>
+            <img class="fondoTextarea2" src="img/Astronauta2.jpg">
+
+            <button class="botonDesencriptar">Desencriptar</button>
+            <button class="copiar2">Copiar</button>
+
+        </section>
+    </section>
+
+    <footer>
+        <p class="copyright"> &#169 Copyright Encriptador - 2023</p>
+    </footer>
+
+    <script>
+        var a = "ai";
+        var e = "enter";
+        var i = "imes";
+        var o = "ober";
+        var u = "ufat";
+
+        var sinEncriptar = document.querySelector(".textoSinEncriptar");
+        var boton1 = document.querySelector(".botonEncriptar");
+        var copiarN = document.querySelector('.copiar1');
+        boton1.onclick = encriptar;
+
+        var yaEncriptado = document.querySelector(".textoEncriptado");
+        var boton2 = document.querySelector(".botonDesencriptar");
+        var copiarS = document.querySelector('.copiar2');
+        boton2.onclick = desencriptar;
+
+        var textoOculto = 0;
+
+        var regex = /^[a-z\s]+$/;
+
+        copiarN.addEventListener('click', () => {
+            sinEncriptar.select(); // Selecciona el texto del textarea
+            document.execCommand('copy'); // Copia el texto al portapapeles
+        });
+
+        copiarS.addEventListener('click', () => {
+            yaEncriptado.select(); // Selecciona el texto del textarea
+            document.execCommand('copy'); // Copia el texto al portapapeles
+        });
+
+        function encriptar() {
+            var encriptado;
+
+            encriptado = (sinEncriptar.value).split("");
+
+            if(regex.test(sinEncriptar.value)){
+                for (var buscaVocal = 0; buscaVocal < encriptado.length; buscaVocal++) {
+                if (encriptado[buscaVocal] == "a") {
+                    encriptado[buscaVocal] = a;
+                }
+                if (encriptado[buscaVocal] == "e") {
+                    encriptado[buscaVocal] = e;
+                }
+                if (encriptado[buscaVocal] == "i") {
+                    encriptado[buscaVocal] = i;
+                }
+                if (encriptado[buscaVocal] == "o") {
+                    encriptado[buscaVocal] = o;
+                }
+                if (encriptado[buscaVocal] == "u") {
+                    encriptado[buscaVocal] = u;
+                }
+            }
+            textoOculto = encriptado.join("");
+            yaEncriptado.value = textoOculto
+            sinEncriptar.value = "";
+            }
+            else{
+                alert("No se admiten mayusculas ni caracteres especiales")
+                sinEncriptar.value = "";
+            }
+
+            
+        }
+
+        function desencriptar() {
+            var desencriptando = (yaEncriptado.value).split("");
+            var longitud = desencriptando.length;
+            var vocalA = "a"
+            var vocalE = "e"
+            var vocalI = "i"
+            var vocalO = "o"
+            var vocalU = "u"
+            var sinA = [];
+
+            for (var recorredor = 0; recorredor < longitud; recorredor++) {
+                if (desencriptando[recorredor] == vocalA) {
+                    for (var i0 = 0; i0 < longitud; i0++) {
+                        if (desencriptando[i0] == "a" && desencriptando[i0 + 1] == "i") {
+                            desencriptando.splice(i0, (a.length), "a")
+                        }
+                    }
+                }
+
+                if (desencriptando[recorredor] == vocalE) {
+                    for (var i2 = 0; i2 < longitud; i2++) {
+                        if (desencriptando[i2] == "e" && desencriptando[i2 + 1] == "n" && desencriptando[i2 + 2] == "t" && desencriptando[i2 + 3] == "e" && desencriptando[i2 + 4] == "r") {
+                            desencriptando.splice(i2, (e.length), "e")
+                            console.log(desencriptando)
+                        }
+                    }
+                }
+
+                if (desencriptando[recorredor] == vocalI) {
+                    for (var i3 = 0; i3 < longitud; i3++) {
+                        if (desencriptando[i3] == "i" && desencriptando[i3 + 1] == "m" && desencriptando[i3 + 2] == "e" && desencriptando[i3 + 3] == "s") {
+                            desencriptando.splice(i3, (i.length), "i")
+                            console.log(desencriptando)
+                        }
+                    }
+                }
+
+                if (desencriptando[recorredor] == vocalO) {
+                    for (var i4 = 0; i4 < longitud; i4++) {
+                        if (desencriptando[i4] == "o" && desencriptando[i4 + 1] == "b" && desencriptando[i4 + 2] == "e" && desencriptando[i4 + 3] == "r") {
+                            desencriptando.splice(i4, (o.length), "o")
+                            console.log(desencriptando)
+                        }
+                    }
+                }
+
+                if (desencriptando[recorredor] == vocalU) {
+                    for (var i5 = 0; i5 < longitud; i5++) {
+                        if (desencriptando[i5] == "u" && desencriptando[i5 + 1] == "f" && desencriptando[i5 + 2] == "a" && desencriptando[i5 + 3] == "t") {
+                            desencriptando.splice(i5, (u.length), "u")
+                            console.log(desencriptando)
+                        }
+                    }
+                }
+            }
+            yaEncriptado.value = ""
+            sinEncriptar.value = desencriptando.join("");
+            console.log(desencriptando)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+html{
+    font-family: 'Orbitron', sans-serif;
+}
+
+.fondo{
+    background-image: url(img/fondo6.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+}
+
+header{
+    display: flex;
+    flex-wrap: nowrap;    /*Nos mantendra todo en una sola linea aun asi si eso significa sacrificar el espacio para la legibilidad del elemento */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 30%;
+    position: absolute;
+    top: 20px;
+    right: 0px;
+}
+
+.fondoAlura{
+    width: 150px;
+    padding-left: 50px;
+}
+
+.titulo{
+    font-size: 80px;
+    text-transform: uppercase;
+    padding-right: 450px;
+    padding-top: 50px;
+    color: #DE282E;
+    text-shadow: 2px 2px 10px #1DD6F8;
+}
+
+.textareas{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.textareaEncriptar,  .textareaDesencriptar{
+    display: grid;
+    grid-template-rows: 90% 10%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5rem;
+    padding: 15px;
+    opacity: 0.8;
+}
+
+.textoSinEncriptar, .textoEncriptado{
+    grid-row: 1/2;
+    grid-column: 1/3;
+    resize: none;
+    border-radius: 15px;
+}
+
+.fondoTextarea1{
+    width: 400px;
+    position: absolute;
+    top: 150px;
+    left: 410px;
+    opacity: .4;
+    pointer-events: none;
+}
+
+.fondoTextarea2{
+    width: 280px;
+    position: absolute;
+    top: 150px;
+    left: 945px;
+    opacity: .4;
+    pointer-events: none;
+}
+
+.botonEncriptar, .botonDesencriptar{
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+
+.copiar1, .copiar2{
+    grid-row: 2/3;
+    grid-column: 2/3 ;
+}
+
+.botonEncriptar, .copiar1{
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 7px;
+    border: none;
+}
+
+.botonDesencriptar, .copiar2{
+    width: 75%;
+    margin: 0 auto;
+    border-radius: 7px;
+    border: none;
+}
+
+footer{
+    margin: 0 auto;
+    top: 730px;  
+}
+
+.copyright{
+    padding-left: 600px;
+    color: aliceblue;
+    text-shadow: 2px 2px 10px #1DD6F8;
+
+}
+
